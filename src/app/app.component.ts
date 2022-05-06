@@ -33,8 +33,9 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
     this.setOptions();
     this.chartDom = document.getElementById('canvas-container');
-    this.myChart = echarts.init(this.chartDom, 'dark');
+    this.myChart = echarts.init(this.chartDom);
     this.option && this.myChart.setOption(this.option);
+    window.addEventListener('resize', this.myChart.resize);
   }
 
   setOptions(): void {
